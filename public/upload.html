@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload File</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital@1&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <!--NavBar Section-->
+    <div class="navbar">
+      <div class="brand">
+
+        <img src="imagens/logo.png" alt="Brand Logo" class="brand-logo">
+
+      </div>
+      <nav class="navigation hide" id="navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html">Forum</a></li>
+          <li class="nav-item"><a href="upload.html">Upload</a></li>
+          <li class="nav-item"><a href="details.html">Detalhes</a></li>
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <h1> UPLOAD DO ARTIGO </h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <label for="description">Descrição:</label>
+      <input type="text" id="description" name="description" required>
+      <br>
+      <label for="file">Adicione um arquivo WORD:</label>
+      <input type="file" id="file" name="file" accept=".doc, .docx" required>
+      <br><br>
+      <button type="submit">Upload</button>
+    </form>
+  </div>
+
+  <footer>
+    <span>&copy; 2024 ARTDev</span>
+  </footer>
+ 
+</body>
+
+</html>

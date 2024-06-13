@@ -1,0 +1,336 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+  font-family: "Titillium Web", sans-serif;
+  background-color: #2f1952;
+  color: #fefefe;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  color: #ff0042;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bolder;
+  margin: 10px 0;
+}
+
+.container {
+  flex: 1;
+  margin: 20px;
+  padding: 20px;
+  background-color: #3b2e5a;
+  border-radius: 10px;
+}
+
+.subforum {
+  margin-top: 20px;
+  background-color: #444;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.subforum-title {
+  background-color: #52057b;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.subforum-title h1 {
+  color: #fff;
+  margin: 0;
+}
+
+.subforum-row {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #333;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.subforum-column {
+  flex: 1;
+  padding: 10px;
+  margin: 4px;
+  background-color: #2f2f2f;
+  border-radius: 5px;
+}
+
+.subforum-description * {
+  margin-block: 0;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subforum-icon i {
+  font-size: 45px;
+}
+
+.subforum-devider {
+  display: none;
+}
+
+/* For the smartphones */
+@media screen and (max-width: 460px) {
+  .container {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .subforum-row {
+    display: block;
+  }
+
+  .subforum-devider {
+    display: block;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(
+      to right,
+      rgba(190, 190, 190, 0),
+      rgba(255, 255, 255, 0.75),
+      rgba(190, 190, 190, 0)
+    );
+  }
+}
+
+/*  */
+@media screen and (min-width: 460px) and (max-width: 1024px) {
+  .container {
+    margin: 15px;
+    padding: 15px;
+  }
+
+  .subforum-row {
+    display: grid;
+    grid-template-columns: 10% 60% 10% 20%;
+  }
+
+  .subforum-icon i {
+    font-size: 35px;
+  }
+
+  html {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 16px;
+  }
+}
+/*   Header   */
+
+header {
+  margin-inline: 10px;
+  background-color: #52057b;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #fff;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-list {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item a {
+  display: block;
+  text-align: center;
+  margin-inline: 20px;
+  font-size: 20px;
+  padding: 10px;
+  color: #fff;
+}
+
+.nav-item a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.bar-icon {
+  font-size: 30px;
+  display: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-family: aquire;
+  color: #fff;
+}
+
+
+/* Navbar for smartphones */
+@media screen and (max-width: 768px) {
+  .navigation {
+    flex-direction: column;
+    display: none;
+    width: 100%;
+  }
+
+  .navigation.show {
+    display: flex;
+  }
+
+  .bar-icon {
+    display: block;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-item a {
+    width: 100%;
+    text-align: left;
+  }
+}
+
+.search-box {
+  margin-top: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #3b2e5a;
+  border-radius: 10px;
+  box-shadow: 1px 2px 3px #52057b;
+}
+
+.search-box select,
+.search-box input,
+.search-box button {
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+.search-box button {
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+}
+
+.search-box button:hover {
+  background-color: #000;
+  color: #fff;
+  box-shadow: 1px 2px 3px #fff;
+}
+
+.comments {
+  margin-top: 10px;
+}
+
+.comments div {
+  background-color: #444;
+  padding: 5px;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+form input[type="text"],
+form input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+form button {
+  padding: 10px;
+  background-color: #52057b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #333;
+}
+
+footer {
+  background-color: #52057b;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: auto;
+}
+.delete-btn {
+  padding: 5px 10px;
+  margin-top: 10px;
+  background-color: #ff0042;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #d30035;
+}
+
+.updates {
+  margin-top: 10px;
+  padding: 5px;
+  background-color: #444;
+  border-radius: 5px;
+}
+
+.updates div {
+  margin-bottom: 5px;
+}
+
+.brand-logo {
+  width: 200px; 
+  height: auto;
+  margin-right: 10px;
+}
