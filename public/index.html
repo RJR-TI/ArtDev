@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Forum</title> 
-    <link rel="stylesheet" href="style.css"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital@1&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
-        
+
         <div class="navbar">
             <div class="brand">
                 <img src="imagens/logo.png" alt="Brand Logo" class="brand-logo">
@@ -18,8 +20,8 @@
             <nav class="navigation hide" id="navigation">
                 <ul class="nav-list">
                     <li class="nav-item"><a href="index.html">Forum</a></li>
-                    <li class="nav-item"><a href="upload.html">Upload</a></li> 
-                    <li class="nav-item"><a href="details.html">Detalhes</a></li> 
+                    <li class="nav-item"><a href="upload.html">Upload</a></li>
+                    <li class="nav-item"><a href="details.html">Detalhes</a></li>
                 </ul>
             </nav>
         </div>
@@ -39,16 +41,16 @@
     <div class="container">
         <div class="subforum">
             <div class="subforum-title">
-                <h1>Informações Gerais</h1> 
+                <h1>Informações Gerais</h1>
             </div>
             <div id="file-list" class="subforum-rows"></div> <!-- Área onde os arquivos serão listados -->
         </div>
     </div>
     <footer>
-        <span>&copy; 2024 ARTDev</span> 
+        <span>&copy; 2024 ARTDev</span>
     </footer>
 
-   
+
     <script>
         // Adiciona um evento ao formulário de pesquisa para buscar arquivos ao submeter o formulário
 
@@ -57,11 +59,11 @@
             fetchFiles(document.getElementById('searchInput').value); // Chama a função fetchFiles com o valor da pesquisa
         });
 
-        
+
         async function fetchFiles(query = '') {
-            let url = '/files'; 
+            let url = '/files';
             if (query) {
-                url = `/search?q=${encodeURIComponent(query)}`; 
+                url = `/search?q=${encodeURIComponent(query)}`;
             }
 
             const response = await fetch(url); // Faz uma requisição HTTP para a URL definida
@@ -102,13 +104,15 @@
             });
         }
 
-      
+
         async function fetchComments(file_id) {
             const response = await fetch(`/comments/${file_id}`); // Faz uma requisição para a rota de comentários
-            const comments = await response.json(); 
+            const comments = await response.json();
             const commentsDiv = document.getElementById(`comments-${file_id}`); // Seleciona o elemento para exibir os comentários
 
-            
+            // Limpa os comentários anteriores
+            commentsDiv.innerHTML = '';
+
             comments.forEach(comment => {
                 const commentDiv = document.createElement('div'); // Cria um novo elemento div para cada comentário
                 commentDiv.textContent = comment.comment; // Define o texto do comentário
@@ -130,7 +134,7 @@
             });
         }
 
-    
+
         async function deleteFile(file_id) {
             const response = await fetch(`/delete/${file_id}`, {
                 method: 'DELETE' // Define o método HTTP como DELETE
@@ -138,7 +142,7 @@
             if (response.ok) {
                 fetchFiles(); // Recarrega a lista de arquivos após a exclusão
             } else {
-                alert('Erro ao deletar arquivo'); 
+                alert('Erro ao deletar arquivo');
             }
         }
 
@@ -146,4 +150,5 @@
         fetchFiles();
     </script>
 </body>
+
 </html>
