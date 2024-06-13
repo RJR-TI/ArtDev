@@ -99,6 +99,18 @@ app.post("/add-comment", (req, res) => {
   );
 });
 
+// Rota para visualizar comentários de um arquivo
+app.get("/comments/:file_id", (req, res) => {
+  const file_id = req.params.file_id;
+  db.all(`SELECT * FROM comments WHERE file_id = ?`, [file_id], (err, rows) => {
+    if (err) {
+      return res.status(500).send(err.message);
+    }
+    res.json(rows);
+  });
+});
+
+
 // Rota para upload de atualização
 app.post("/update/:id", (req, res) => {
   const fileId = req.params.id;
